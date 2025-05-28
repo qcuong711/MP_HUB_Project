@@ -1,0 +1,26 @@
+@{
+    ViewData["Title"] = "Đăng nhập";
+    var returnUrl = ViewData["ReturnUrl"] as string;
+    var error = ViewData["Error"] as string;
+}
+<div class="row justify-content-center">
+    <div class="col-md-4">
+        <h2 class="text-center">Đăng nhập hệ thống</h2>
+        @if (!string.IsNullOrEmpty(error))
+        {
+            <div class="alert alert-danger">@error</div>
+        }
+        <form method="post" asp-action="Login">
+            <input type="hidden" name="returnUrl" value="@returnUrl" />
+            <div class="mb-3">
+                <label for="username" class="form-label">Tài khoản</label>
+                <input type="text" class="form-control" id="username" name="username" required autofocus />
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Mật khẩu</label>
+                <input type="password" class="form-control" id="password" name="password" required />
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Đăng nhập</button>
+        </form>
+    </div>
+</div> 
