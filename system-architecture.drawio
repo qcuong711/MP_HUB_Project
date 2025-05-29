@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2024-03-19T00:00:00.000Z" agent="Mozilla/5.0" version="21.7.5" etag="your-etag" type="device">
+  <diagram id="system-architecture" name="System Architecture">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Client Layer -->
+        <mxCell id="client" value="Client (Browser)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="320" y="40" width="160" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Frontend Gateway -->
+        <mxCell id="frontend-gateway" value="Frontend Gateway&#xa;(Next.js)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="320" y="160" width="160" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Frontend Components -->
+        <mxCell id="auth-component" value="Auth Component&#xa;(NextAuth.js)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="120" y="160" width="160" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="dashboard-component" value="Dashboard Component&#xa;(React)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="520" y="160" width="160" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Identity Server -->
+        <mxCell id="identity-server" value="Identity Server&#xa;(Duende)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="320" y="280" width="160" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Identity Server Components -->
+        <mxCell id="auth-controller" value="Auth Controller&#xa;(Login/Logout)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="120" y="280" width="160" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="token-service" value="Token Service&#xa;(JWT)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="520" y="280" width="160" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Master Data Service -->
+        <mxCell id="master-data" value="Master Data Service&#xa;(ASP.NET Core)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="120" y="400" width="160" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Master Data Components -->
+        <mxCell id="master-data-controllers" value="Controllers&#xa;- Organization&#xa;- Department&#xa;- Position&#xa;- Employee" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="40" y="400" width="120" height="100" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="master-data-services" value="Services&#xa;- OrganizationService&#xa;- DepartmentService&#xa;- PositionService&#xa;- EmployeeService" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="280" y="400" width="120" height="100" as="geometry" />
+        </mxCell>
+        
+        <!-- HRM Service -->
+        <mxCell id="hrm" value="HRM Service&#xa;(ASP.NET Core)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="520" y="400" width="160" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- HRM Components -->
+        <mxCell id="hrm-controllers" value="Controllers&#xa;- Contract&#xa;- Salary&#xa;- Attendance&#xa;- Leave" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="440" y="400" width="120" height="100" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="hrm-services" value="Services&#xa;- ContractService&#xa;- SalaryService&#xa;- AttendanceService&#xa;- LeaveService" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="680" y="400" width="120" height="100" as="geometry" />
+        </mxCell>
+        
+        <!-- Database -->
+        <mxCell id="master-db" value="Master Data DB&#xa;(SQL Server)&#xa;- Organizations&#xa;- Departments&#xa;- Positions&#xa;- Employees" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="120" y="520" width="160" height="100" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="hrm-db" value="HRM DB&#xa;(SQL Server)&#xa;- Contracts&#xa;- Salaries&#xa;- Attendances&#xa;- Leaves" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="520" y="520" width="160" height="100" as="geometry" />
+        </mxCell>
+        
+        <!-- Connections -->
+        <!-- Client to Frontend Components -->
+        <mxCell id="conn1" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="client" target="frontend-gateway">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Frontend Components to Auth -->
+        <mxCell id="conn2" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="auth-component" target="auth-controller">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Frontend Components to Dashboard -->
+        <mxCell id="conn3" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="dashboard-component" target="master-data">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="600" y="320"/>
+              <mxPoint x="600" y="400"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Auth to Token Service -->
+        <mxCell id="conn4" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="auth-controller" target="token-service">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Token Service to Microservices -->
+        <mxCell id="conn5" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="token-service" target="master-data">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="600" y="360"/>
+              <mxPoint x="600" y="400"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Master Data Internal -->
+        <mxCell id="conn6" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="master-data" target="master-data-controllers">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="conn7" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="master-data" target="master-data-services">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- HRM Internal -->
+        <mxCell id="conn8" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="hrm" target="hrm-controllers">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="conn9" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="hrm" target="hrm-services">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Services to Databases -->
+        <mxCell id="conn10" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="master-data-services" target="master-db">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="340" y="520"/>
+              <mxPoint x="340" y="520"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="conn11" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="hrm-services" target="hrm-db">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="740" y="520"/>
+              <mxPoint x="740" y="520"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Labels -->
+        <mxCell id="label1" value="HTTP/HTTPS" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="320" y="110" width="160" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="label2" value="OAuth2/OpenID Connect" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="320" y="230" width="160" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="label3" value="REST API" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="320" y="350" width="160" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- API Endpoints -->
+        <mxCell id="api-endpoints" value="API Endpoints:&#xa;/api/auth/login&#xa;/api/auth/logout&#xa;/api/master-data/organizations&#xa;/api/master-data/departments&#xa;/api/master-data/positions&#xa;/api/master-data/employees&#xa;/api/hrm/contracts&#xa;/api/hrm/salaries&#xa;/api/hrm/attendances&#xa;/api/hrm/leaves" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="800" y="40" width="200" height="200" as="geometry" />
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile> 
