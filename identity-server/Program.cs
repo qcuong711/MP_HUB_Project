@@ -118,7 +118,7 @@ builder.Services.AddIdentityServer(options =>
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-// Thêm cấu hình Authentication
+// Thêm cấu hình Authentication với Google
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultScheme = "Cookies";
@@ -127,7 +127,40 @@ builder.Services.AddAuthentication(options =>
 .AddCookie("Cookies", options =>
 {
     options.Cookie.SameSite = SameSiteMode.Lax;
-    options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+    options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
+    options.LoginPath = "/Account/Login";
+    options.LogoutPath = "/Account/Logout";
+    options.AccessDeniedPath = "/Account/AccessDenied";
+})
+.AddGoogle(options =>
+{
+    // Cấu hình Google OAuth - Thay thế bằng Client ID và Secret thực tế
+    // Để lấy Client ID và Secret:
+    // 1. Truy cập Google Cloud Console
+    // 2. Tạo project mới hoặc chọn project hiện có
+    // 3. Bật Google+ API
+    // 4. Tạo OAuth 2.0 credentials
+    // 5. Thêm redirect URI: http://localhost:5001/signin-google
+    
+    options.ClientId = "YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com";
+    options.ClientSecret = "YOUR_GOOGLE_CLIENT_SECRET";
+    
+    // Thêm scopes cần thiết
+    options.Scope.Add("openid");
+    options.Scope.Add("profile");
+    options.Scope.Add("email");
+    
+    // Cấu hình events để xử lý callback
+    options.Events.OnCreatingTicket = async context =>
+    {
+        var request = context.HttpContext.Request;
+        var logger = context.HttpContext.RequestServices.GetRequiredService<ILogger<Program>>();
+        
+        logger.LogInformation("Google authentication successful for user: {Email}", 
+            context.Principal?.FindFirst(ClaimTypes.Email)?.Value);
+        
+        await Task.CompletedTask;
+    };
 })
 .AddOpenIdConnect("oidc", options =>
 {
@@ -168,6 +201,9 @@ app.UseRouting();
 
 // Sử dụng CORS
 app.UseCors("AllowFrontend");
+
+// Thêm Authentication middleware
+app.UseAuthentication();
 
 // Sử dụng IdentityServer
 app.UseIdentityServer();
