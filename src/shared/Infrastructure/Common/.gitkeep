@@ -1,0 +1,2 @@
+# Thư mục chứa các Infrastructure objects dùng chung
+# Database base classes, logging, caching, etc. 

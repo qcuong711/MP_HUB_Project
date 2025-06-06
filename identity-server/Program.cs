@@ -22,7 +22,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
     {
-        policy.WithOrigins("http://localhost:3000", "http://localhost:5001")
+        policy.WithOrigins("http://localhost:3000", "http://localhost:3001", "http://localhost:5001")
               .AllowAnyHeader()
               .AllowAnyMethod()
               .AllowCredentials();
@@ -82,6 +82,34 @@ builder.Services.AddIdentityServer(options =>
                 "http://localhost:3000/dashboard"
             },
             AllowedCorsOrigins = new List<string> { "http://localhost:3000" }
+        },
+        // Thêm HRM Client
+        new Client
+        {
+            ClientId = "hrm-client",
+            ClientName = "HRM Application",
+            AllowedGrantTypes = GrantTypes.Code,
+            RequirePkce = false, // Tắt PKCE để đơn giản hóa
+            RequireClientSecret = false, // Public client cho SPA
+            AllowedScopes = new List<string> { 
+                IdentityServerConstants.StandardScopes.OpenId,
+                IdentityServerConstants.StandardScopes.Profile,
+                IdentityServerConstants.StandardScopes.Email,
+                "hrm" 
+            },
+            RedirectUris = new List<string> { 
+                "http://localhost:3001/dashboard",
+                "http://localhost:3001/auth/callback"
+            },
+            PostLogoutRedirectUris = new List<string> { 
+                "http://localhost:3001",
+                "http://localhost:3001/"
+            },
+            AllowedCorsOrigins = new List<string> { "http://localhost:3001" },
+            AllowAccessTokensViaBrowser = true,
+            AccessTokenLifetime = 3600,
+            AuthorizationCodeLifetime = 300,
+            RequireConsent = false
         }
     })
     .AddInMemoryIdentityResources(new List<IdentityResource>

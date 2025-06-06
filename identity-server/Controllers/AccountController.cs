@@ -67,7 +67,7 @@ namespace IdentityServer.Controllers
                     return Redirect(returnUrl);
                 }
 
-                return Redirect("http://localhost:3000/dashboard");
+                return Redirect("http://localhost:3001/dashboard");
             }
             
             // Kiểm tra user trong danh sách đăng ký
@@ -92,7 +92,7 @@ namespace IdentityServer.Controllers
                     return Redirect(returnUrl);
                 }
 
-                return Redirect("http://localhost:3000/dashboard");
+                return Redirect("http://localhost:3001/dashboard");
             }
 
             ViewData["ReturnUrl"] = returnUrl;
@@ -249,7 +249,7 @@ namespace IdentityServer.Controllers
                 return Redirect(returnUrl);
             }
 
-            return Redirect("http://localhost:3000/dashboard");
+            return Redirect("http://localhost:3001/dashboard");
         }
 
         [HttpGet]
@@ -263,7 +263,7 @@ namespace IdentityServer.Controllers
                 return Redirect(context.PostLogoutRedirectUri);
             }
             
-            return Redirect("http://localhost:3000/dashboard");
+            return Redirect("http://localhost:3001/dashboard");
         }
     }
 } 
